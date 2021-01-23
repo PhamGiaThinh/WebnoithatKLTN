@@ -1,0 +1,74 @@
+
+<div class="header-content">
+    <div class="logo">
+        <img src="/assets/image/logo.png" width="40" height="40">
+        <a routerLink="/">Webnoithat</a>
+    </div>
+    <div class="sign-in-up">
+        <div *ngIf="!checkLogin; else showCustomer">
+            <a routerLink="/login">Đăng nhập</a>
+            
+        </div>
+        <ng-template #showCustomer>
+            <div class="account">
+                <div>
+                <div  *ngIf="inSocial!=null;else showEl">
+                    <img src="{{user.imageUrl}}" height="30px" width="30px" /> 
+                </div>
+              
+                
+                <ng-template et-file pTemplate="file" #showEl><img
+                    src="https://localhost:8443/customerimg/{{user.imageUrl}}" height="30px" width="30px"></ng-template>
+                        
+                </div >
+                <p>{{user.name}}</p>
+            </div>
+            <div class="account-menu">
+                <button id="acc-menu" (click)="showAccMenu()"><i class="fas fa-caret-down" [class.clicked]="btnacc"></i></button>
+                <div class="account-menu-content" [class.active]="btnacc" id="accMenu">
+                    <a routerLink="/profile/{{user.id}}">Trang cá nhân</a>
+                    <a *ngIf="checkLogin" (click)="logout()" style="cursor:pointer">Thoát</a>
+                </div>
+            </div>
+        </ng-template>
+
+    </div>
+</div>
+
+<div class="menu">
+    <nav class="nav-bar" [class.active]="check">
+        <ul>
+            <li><a routerLink="/">Trang chủ</a></li>
+            <li><a routerLink="/product">Sản phẩm</a></li>
+            <li><a routerLink="/about">Giới thiệu</a></li>
+            <li><a routerLink="/contact">Liên hệ</a></li>
+        </ul>
+        <div class="searchbar">
+            <form>
+                <input type="text" placeholder="Tìm kiếm" #search>
+                <button class="iconsearch" (click)="navigateSearch(search.value)">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+            
+            <div class="cart" >
+                <ng-template [ngIf]="!quantitycart" [ngIfElse]="showCart"]>
+                    <a routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
+                    <div class="cart-number">0</div>
+                </ng-template>
+                <ng-template #showCart>
+                    <a routerLink="/cart" ><i class="fas fa-shopping-cart"></i></a>
+                    <div class="cart-number">{{quantitycart}}</div>
+                </ng-template>
+                
+    
+            </div>
+        </div>
+    </nav>
+    <div class="toggle-btn" (click)="toogleBtn()">
+        <div class="bar1" [class.change]="check"></div>
+        <div class="bar2" [class.change]="check"></div>
+        <div class="bar3" [class.change]="check"></div>
+    </div>
+    
+</div>

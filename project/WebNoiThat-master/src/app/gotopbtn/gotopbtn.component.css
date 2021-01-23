@@ -1,0 +1,39 @@
+.goTop{
+    position: fixed;
+    bottom: 3vh;
+    right: 1vh;
+    height: 50px;
+    cursor: pointer;
+    z-index: 3;
+}
+.goTop > p{
+    margin: 0 !important;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    color: #000000;
+}
+.goTop span{
+    width: 30px;
+    height: 2px;
+    background: #000000;
+    position: absolute;
+}
+.goTop span:nth-child(3){
+    transform: translateX(25px) rotate(-135deg) ;
+    transition: 0.5s ease;
+}
+.goTop span:nth-child(2){
+    transform: translateX(5px) rotate(135deg);
+    transition: 0.5s ease;
+}
+.goTop:hover span:nth-child(2){
+    transform: translateX(5px) rotate(0deg);
+}
+.goTop:hover span:nth-child(3){
+    transform: translateX(35px) rotate(0deg);
+}
+.goTop:hover p{
+    opacity: 1;
+}

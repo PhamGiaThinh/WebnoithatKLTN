@@ -1,0 +1,249 @@
+/*-----------------------------Banner*/
+/* .banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.banner #carouselExampleIndicators{
+    width: 800px;
+    height: 400px;
+    margin: 5px;
+    overflow: hidden;
+}
+.banner #carouselExampleIndicators .carousel-inner .carousel-item{
+    object-fit: cover;
+    width:800px;
+    height:400px;
+}
+
+.banner .right-banner{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 450px;
+    height: 200px;
+}
+.banner .right-banner img{
+    width: 450px;
+    height: 195px;
+    margin: 5px 0 5px 10px;
+} */
+.slider{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "slider img1"
+                        "slider img2";
+    grid-gap: 0.2rem;
+
+}
+#carouselExampleIndicators{
+    grid-area: slider;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.carousel-indicators{
+    z-index: 1 !important;
+}
+#banner1{
+    grid-area: img1;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+#banner2{
+    grid-area: img2;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.carousel-indicators li{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+.banner >.container{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* --------------------Sản phẩm mới */
+
+.wrapper .container {
+    margin: 20px auto;
+    padding: 20px;
+    /* max-width: 1270px !important; */
+    width: 100%;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* border-radius: 5px; */
+    background: #f4f4f4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+.wrapper .container h3{
+    margin-left: 30px;
+}
+.wrapper .container .product-row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.wrapper .container .product-row .product-card{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background: #ffffff;
+    margin: 20px;
+    flex: 0 0 25%;
+    max-width: 235px;
+    height: 309px;
+    
+}
+
+.wrapper .container .product-row .product-card img{
+    /* width: 250px;
+    height: 250px; */
+    width: 235px;
+    height: 235px;
+    cursor: pointer;
+    object-fit: cover;
+}
+.wrapper .container .product-row .product-card .product-name p{
+    margin-bottom: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    width: 225px;
+}
+
+.wrapper .container .product-row .product-card .product-price p{
+    color: red;
+    cursor: pointer;
+}
+.wrapper .container .product-row .product-card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* -----------------Banner 2 */
+.wrapper .banner2{
+    position: relative;
+}
+.wrapper .banner2 img{
+    width: 100%;
+    height:500px ;
+}
+.wrapper .banner2 .pr{
+    position: absolute;
+    background: #000000;
+    color: #ffffff;
+    bottom: 30px;
+    margin: 0 30px;
+    padding: 15px;
+}
+.wrapper .banner2 .pr p{
+    margin-bottom: 0;
+}
+/* ------------------Nhân viên */
+.wrapper .team{
+    margin-top: 30px;
+    text-align: center;
+}
+.wrapper .team .members{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper .members .member-card img{
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    object-fit: cover;
+}
+.wrapper .members .member-card .member-info p{
+    margin-bottom: 0;
+}
+.wrapper .members .member-card .member-info{
+    background-color: #ffffff;
+    margin-top: 10px;
+}
+.wrapper .members .member-card{
+    margin: 30px 30px;
+    transition: all 0.7s ease;
+}
+.wrapper .members .member-card:hover{
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+}
+.wrapper .members .member-card .member-info .description i{
+    font-size: 20px;
+    margin: 0 10px;
+}
+.wrapper .members .member-card .member-info .description a{
+    text-decoration: none;
+}
+.wrapper .members .member-card .member-info .description{
+    /* transform: translateY(100%); */
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+.wrapper .members .member-card:hover .member-info .description{
+    opacity: 1;
+    /* transform: translateY(-50%); */
+    background-color: #ffffff;
+}
+.wrapper .members .member-card:hover .member-info{
+    transition: all 0.3s ease;
+    transform: translateY(-100%);
+}
+@media (min-width: 360px){
+    
+
+    /* for Trang chủ */
+    /* .banner #carouselExampleIndicators{
+        height: 100%;
+        width: 100%;
+    }
+    .banner .right-banner{
+        display: none;
+    }
+    .wrapper .container .product-row{
+        flex-direction: column;
+    }
+    .wrapper .team .members{
+        flex-direction: column;
+    }
+    .wrapper .container h3{
+        margin-left: 0;
+    } */
+}
+
+@media (min-width: 768px){
+
+    /* .banner #carouselExampleIndicators{
+        width: 800px;
+        height: 400px;
+    }
+    .banner .right-banner{
+        display: flex;
+    }
+    .wrapper .container .product-row{
+        flex-direction: row;
+    }
+    .wrapper .team .members{
+        flex-direction: row;
+    }
+    .wrapper .container h3{
+        margin-left: 0;
+    } */
+}

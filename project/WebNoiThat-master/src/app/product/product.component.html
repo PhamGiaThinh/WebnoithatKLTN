@@ -1,0 +1,105 @@
+
+<app-header></app-header>
+<app-gotopbtn></app-gotopbtn>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
+    </ol>
+</nav>
+<div class="wrapper">
+    <div class="container">
+        <div class="sidebar">
+            <h3>Danh mục</h3>
+            <div class="line"></div>
+            <ul>
+                <li *ngFor="let categoryType of categoryTypes" style="cursor: pointer;">
+                    <a (click)="getListByCateType(categoryType.id)">{{categoryType.name}}</a>
+                </li>
+            </ul>
+            <div class="line"></div>
+            <h3>Giá</h3>
+            <div class="line"></div>
+            <div class="price">
+                <input type="text" #min name="min" placeholder=" Từ">
+                <div>—</div>
+                <input type="text" #max name="max" placeholder=" Đến">
+            </div>
+            <!-- <button type="button" class="btn btn-outline-primary">OK</button> -->
+            <button mat-raised-button color="warn" (click)="searchRange(min.value, max.value)">OK</button>
+            <div class="line"></div>
+            <h3>Thương hiệu</h3>
+            <div class="line"></div>
+            <ul>
+                <li #supp *ngFor="let supplier of suppliers" >
+                    <a>{{supplier.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="products">
+            <div class="filter">
+                <div style="margin-left: 20px;">Sắp xếp theo</div>
+                <button class="filter-btn" (click)="onOptionsSelected(1)">Phổ biến</button>
+                <button class="filter-btn" (click)="showNewProduct()">Mới nhất</button>
+                <button class="filter-btn" (click)="showBestSeller()">Bán chạy</button>
+                <div class="dropdown">
+                    <!-- <div class="price">
+                        <button style="width:200px">Giá
+                            <i class="fas fa-angle-down" aria-hidden="true"></i></button>
+                        <ul>
+                            <li *ngFor="let item of items " [value]="item.id">
+                                <a>{{item.name}}</a>
+                            </li>
+                            <li><a>Giá: Cao đến Thấp</a></li>
+                        </ul>
+                    </div> -->
+                    <select style="width: 200px; height: 30px;" class="form-control" name="item"  #mySelectType
+                            (change)='onOptionsSelected(mySelectType.value)' id="item">
+                            <option *ngFor="let item of items " [value]="item.id">
+                                {{item.name}}
+                            </option>
+                    </select>
+                </div>
+                <div class="searchproduct">
+                    <input type="text" placeholder=" Tìm kiếm" #search value="{{searchval}}">
+                    <button (click)="searchProduct(search.value)">Tìm kiếm</button>
+                </div>
+            </div>
+            <div class="product-list">
+                <div class="product-row">
+                    <div class="product-card" *ngFor="let product of products; let i=index">
+                        <img routerLink="/productdetail"(click)="detail(product.id)" src="https://localhost:8443/api/productimage/{{imgname[i]}}"
+                            alt="product">
+                        <!-- <div class="addtocard-btn">
+                            <button (click)="detail(product.id)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button>
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button>
+                                <i class="fas fa-cart-arrow-down"></i>
+                            </button>
+                        </div> -->
+                        
+                        <div class="product-name">
+                            <p>{{product.name}}</p>
+                        </div>
+                        <div class="product-price">
+                            <p>{{product.price | number:'1.0-2'}} VNĐ</p>
+                        </div>
+                        <div class="product-price-discount">
+                            <p>{{product.discountPrice | number:'1.0-2'}} VNĐ</p>
+                        </div>
+                        <button class="add-to-cart" (click)="addCart(product.id)">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </div>
+            <mat-paginator [length]="totalProduct" [pageSize]="productsPerPage" 
+                    (page)="onChangedPage($event)">
+                </mat-paginator>
+            
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

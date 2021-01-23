@@ -1,0 +1,3 @@
+guest (ROLE_USER): xin@gmail.com - 1234567
+admin (ROLE_ADMIN): anh@gmail.com - 123456
+employee (ROLE_EMPLOYEE): A@gmail.com - 123456
